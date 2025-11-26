@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MyFoodTracker</title>
+        <link rel="stylesheet" href="foodTracker.css">
+    </head>
+    <body>
+        <form class="container" action="/submit" method="post">
+            <h1>Name</h1>
+            <label>Enter food item:</label>
+            <input name="fooditems" type="text" pattern="[A-Za-z\s]+" placeholder="Enter 'all' items in ur plate" title="Only letters are allowed" required>
+            <label>Enter Quantity:</label>
+            <input name="quantity" type="number" min="1" placeholder="1 for rice items else Quantity " required>
+            <label>Enter Category:</label>
+            <select name="category" required>
+                <option value="">--Select Category--</option>
+                <option value="Fruit">Fruits</option>
+                <option value="Tifin">Tifin</option>
+                <option value="Meals">Meals</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Dairy">Dairy</option>
+            </select>
+            <input type="submit" id="submit">
+            <label style="align-self: center;">Two more meals and a tifin</label>
+            <table id ="myTable">
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Food Items</th>
+                    <th>Quantity</th>
+                    <th>Category</th>
+                </tr>
+
+            </table>
+            <button id="remove">Remove</button>
+        </form>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="foodTracker.js"></script>
+    </body>
+</html>
