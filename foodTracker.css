@@ -1,0 +1,70 @@
+body{
+    background-image: url(./images/foodie.jpg);
+    background-repeat: no-repeat;
+    background-position: center 1px;
+    background-size: 550px;
+}
+
+.container{
+    position: relative;
+    top:25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+    justify-self: center;
+}
+
+input[type="submit"],button{
+    width: max-content;
+    align-self: center;
+    background-color: aquamarine;
+    border: 0px;
+    color: rgb(255, 68, 0);
+    font-family: monospace;
+    font-weight: bolder;
+    border-radius: 8px;
+}
+
+table{
+    border: 1px solid;
+    border-color: #f80178;
+}
+
+th{
+    color: #f80901;
+    background-color: aqua;
+}
+
+td{
+    background-color: rgb(27, 231, 27);
+    width: max-content;
+    text-align: center;
+}
+
+h1{
+    align-self: center;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(90deg,#fb026a,#fb6a02,#de1e1e,#f88101);
+    background-clip:content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+}
+
+label{
+    font-family: monospace;
+    font-weight:bolder;
+    color: rgb(247, 65, 4);
+}
+
+input,select{
+    border-radius: 8px;
+    border-color: #f80178;
+    background-color: #02fbf752;
+}
+
+.myBtn :hover{
+    border: 2px solid #de1e1e;
+    width: 300px;
+}
