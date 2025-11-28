@@ -2,6 +2,7 @@ body{
     background-image: url(./images/foodie.jpg);
     background-repeat: no-repeat;
     background-position: center 1px;
+    background-size: 550px;
 }
 
 .container{
@@ -61,4 +62,9 @@ input,select{
     border-radius: 8px;
     border-color: #f80178;
     background-color: #02fbf752;
+}
+
+.myBtn :hover{
+    border: 2px solid #de1e1e;
+    width: 300px;
 }
