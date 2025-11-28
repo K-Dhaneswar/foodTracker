@@ -6,8 +6,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>Name</h1>
-            <form class="container" style="top: 0px;" id="entryForm">
+            <h1>Gayatri Leela</h1>
+            <form class="container" style="top: 0px; height: max-content;" id="entryForm">
                 <label>Enter food item:</label>
                 <input id="fooditems" type="text" pattern="[A-Za-z\s]+" placeholder="Enter 'all' items in ur plate" title="Only letters are allowed" required>
                 <label>Enter Quantity:</label>
@@ -23,19 +23,21 @@
                 </select>
                 <input class="myBtn" type="submit" value="Add Entry">
             </form>
-            <table id ="myTable">
-                <thead>
-                    <tr>
-                        <th>Date & Time</th>
-                        <th>Food Items</th>
-                        <th>Quantity</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="table-wrapper">
+                <table id ="myTable">
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Food Items</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
             <button id="remove">Remove</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
