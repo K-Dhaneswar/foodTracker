@@ -1,34 +1,43 @@
-body{
-    background-image: url(images/foodbg.webp);
+html{
+    background-image: url(images/foodbg.png);
     background-repeat: no-repeat;
-    background-position: center 1px;
-    background-size: 550px;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
 }
 
 .container{
     position: relative;
-    top:65px;
+    top: 5vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 350px;
+    gap: 2vh;
+    width: 80vw;
+    height: 80vh;
     justify-self: center;
+}
+
+#entryForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    width: 80vw;
 }
 
 input[type="submit"],button{
     width: max-content;
-    align-self: center;
     background-color: aquamarine;
     border: 0px;
     color: rgb(255, 68, 0);
     font-family: monospace;
     font-weight: bolder;
     border-radius: 8px;
+    align-self: center;
 }
 
 .table-wrapper{
     width: 100%;
-    max-height: 300px;
+    max-height: 35vh;
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -37,32 +46,36 @@ th{
     position: sticky;
     top: 0px;
     z-index: 2;
+    color: #f80901;
+    background-color: aqua;
+    width: max-content;
 }
 
 table{
     border: 1px solid;
     border-color: #f80178;
-}
-
-th{
-    color: #f80901;
-    background-color: aqua;
+    width: 80vw;
+    font-size: smaller;
 }
 
 td{
     background-color: rgb(27, 231, 27);
     width: max-content;
+    height: max-content;
     text-align: center;
+    overflow-y: break-word;
 }
 
 h1{
-    align-self: center;
-    font-size: 40px;
+    font-size: 5vh;
     font-weight: bold;
     background: linear-gradient(90deg,#fb026a,#fb6a02,#de1e1e,#f88101);
     background-clip:content-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color:transparent;
+    margin-bottom: 0px;
+    align-self: center;
+
 }
 
 label{
@@ -75,21 +88,4 @@ input,select{
     border-radius: 8px;
     border-color: #f80178;
     background-color: #02fbf752;
-}
-
-.myBtn :hover{
-    border: 2px solid #de1e1e;
-    width: 300px;
-
-}
-
-@media (max-width: 600px) {
-  body {
-    background: url('images/foodbg.webp') no-repeat center center fixed;
-    background-size:100% 99.5%;
-  }
-  .container{
-    top: 35px;
-    height: 550px;
-  }
 }

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.00">
         <title>MyFoodTracker</title>
         <link rel="stylesheet" href="foodTracker.css">
     </head>
     <body>
         <div class="container">
             <h1>Gayatri Leela</h1>
-            <form class="container" style="top: 0px; height: max-content;" id="entryForm">
+            <form id="entryForm">
                 <label>Enter food item:</label>
                 <input id="fooditems" type="text" pattern="[A-Za-z\s]+" placeholder="Enter 'all' items in ur plate" title="Only letters are allowed" required>
                 <label>Enter Quantity:</label>
@@ -21,7 +23,7 @@
                     <option value="Snacks">Snacks</option>
                     <option value="Dairy">Dairy</option>
                 </select>
-                <input class="myBtn" type="submit" value="Add Entry">
+                <input type="submit" value="Add Entry">
             </form>
             <div class="table-wrapper">
                 <table id ="myTable">
