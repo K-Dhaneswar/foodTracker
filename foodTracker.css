@@ -1,5 +1,5 @@
 body{
-    background-image: url(./images/foodbg.webp);
+    background-image: url(images/foodbg.webp);
     background-repeat: no-repeat;
     background-position: center 1px;
     background-size: 550px;
@@ -67,4 +67,5 @@ input,select{
 .myBtn :hover{
     border: 2px solid #de1e1e;
     width: 300px;
+
 }
