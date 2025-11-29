@@ -1,11 +1,52 @@
+if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
+  // If no data exists, set default
+    localStorage.setItem("arr", JSON.stringify([3,2]));
+    let today=new Date();
+    let lastday=new Date(today);
+    lastday.setDate(today.getDate()-1);
+    localStorage.setItem("lastday",lastday.toLocaleDateString());
+}
+
 $(document).ready(function(){
     loadTable();
+
 });
+
+let messages=["Yesterday you nailed it — today's another chance to shine!", //0
+                "Yesterday wasn't perfect, but today is a fresh chance — you've got this!",//1
+                "A Tifin and Two meals more to Go!!!",  //2
+                "A Tifin and a Meal to GO!!",   //3
+                "A Tifin or A snack item to GO!!", //4
+                "Two more meals to Go!!",   //5
+                "Keep going one more meal to Go!",  //6
+                "Meals and tiffin completed — star performance!"]//7
+
+function checkDayChange() {
+    const now = new Date();
+    const today = now.toDateString();
+      // Compare with stored day
+    if (localStorage.getItem("lastDay") !== today) {
+        let arr= JSON.parse(localStorage.getItem("arr"));
+        if(arr[0]+arr[1]==0){
+            $("p").text(messages[0]);
+        }
+        else{
+            $("p").text(messages[1]);
+        }
+        localStorage.setItem("arr",JSON.stringify([3,2]));
+        // Save the new day
+        localStorage.setItem("lastDay", today);
+    }
+}
+
+
+
 
 function loadTable(){
     let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
     let $tbody=$("#myTable tbody");
     $tbody.empty();
+    let arr= JSON.parse(localStorage.getItem("arr"));
 
     $.each(foodData, function(index,value){
         let revIndex = foodData.length -1 -index;
@@ -20,7 +61,16 @@ function loadTable(){
                         entry.category +
                     "</td></tr>";
         $tbody.append($row);
+        if(entry.date>localStorage.getItem("lastday")){
+            if(entry.category=="Meals" && arr[1]!=0){
+                arr[1]--;
+            }
+            else if((entry.category=="BreakFast" || entry.category=="snacks") && arr[0]!=0){
+                arr[0]=0;
+            }
+        }
     });
+        $("p").text(messages[7-(arr[0]+arr[1])]);
 }
 
 $("#entryForm").on("submit",function(e){
