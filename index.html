@@ -8,7 +8,9 @@
     </head>
     <body>
         <div class="container">
-            <h1>Gayatri Leela</h1>
+            <div>
+                <h1>Gayatri Leela</h1>
+            </div>
             <form id="entryForm">
                 <label>Enter food item:</label>
                 <input id="fooditems" type="text" pattern="[A-Za-z\s]+" placeholder="Enter 'all' items in ur plate" title="Only letters are allowed" required>
@@ -18,13 +20,16 @@
                 <select id="category" required>
                     <option value="">--Select Category--</option>
                     <option value="Fruit">Fruits</option>
-                    <option value="Tifin">Tifin</option>
+                    <option value="BreakFast">BreakFast</option>
                     <option value="Meals">Meals</option>
                     <option value="Snacks">Snacks</option>
                     <option value="Dairy">Dairy</option>
                 </select>
                 <input type="submit" value="Add Entry">
             </form>
+            <div>
+                <p><!--New messages will Insert here--></p>
+            </div>
             <div class="table-wrapper">
                 <table id ="myTable">
                     <thead>
@@ -40,7 +45,9 @@
                     </tbody>
                 </table>
             </div>
-            <button id="remove">Remove</button>
+            <div>
+                <button id="remove">Remove</button>
+            </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="foodTracker.js"></script>

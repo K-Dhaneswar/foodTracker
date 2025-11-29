@@ -1,4 +1,5 @@
 body{
+    position: fixed;
     background-image: url(images/foodbg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,14 +8,16 @@ body{
 }
 
 .container{
-    position: relative;
-    top: 7vh;
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
+    position: fixed;
+    top: 60px;
+    display:block;
+    gap: 2px;
+    height: 86vh;
     width: 80vw;
-    height: 80vh;
+    justify-items: center;
     justify-self: center;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 #entryForm{
@@ -35,6 +38,14 @@ input[type="submit"],button{
     align-self: center;
 }
 
+table{
+    border: 1px solid;
+    border-color: #f80178;
+    width: 80vw;
+    font-size: smaller;
+    margin-bottom: 5px;
+}
+
 .table-wrapper{
     width: 100%;
     max-height: 35vh;
@@ -51,13 +62,6 @@ th{
     width: max-content;
 }
 
-table{
-    border: 1px solid;
-    border-color: #f80178;
-    width: 80vw;
-    font-size: smaller;
-}
-
 td{
     background-color: rgb(27, 231, 27);
     width: max-content;
@@ -67,18 +71,17 @@ td{
 }
 
 h1{
-    font-size: 5vh;
+    font-size: 30px;
     font-weight: bold;
     background: linear-gradient(90deg,#fb026a,#fb6a02,#de1e1e,#f88101);
     background-clip:content-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color:transparent;
-    margin-bottom: 0px;
-    align-self: center;
+    margin-bottom: 5px;
 
 }
 
-label{
+label,p{
     font-family: monospace;
     font-weight:bolder;
     color: rgb(247, 65, 4);
@@ -90,20 +93,21 @@ input,select{
     background-color: #02fbf752;
 }
 
-
 @media (min-width:380px){
     body{
         width: 380px;
         height: 600px;
         background-size: 380px 600px;
-        background-position: center;
+        background-position:center 0px;
         justify-self: center;
-        align-self: center;
+
     }
 
     .container{
+        top: 40px;
         width: 380px;
-        height: 600px;
+        height: 480px;
+        position: relative;
     }
 
     #entryForm,table{
@@ -112,4 +116,3 @@ input,select{
         justify-self: center;
     }
 }
- 
