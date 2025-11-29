@@ -7,7 +7,9 @@ function loadTable(){
     let $tbody=$("#myTable tbody");
     $tbody.empty();
 
-    $.each(foodData, function(index,entry){
+    $.each(foodData, function(index,value){
+        let revIndex = foodData.length -1 -index;
+        let entry=foodData[revIndex];
         let $row= "<tr><td>"+ 
                         entry.date +"\n"+entry.time +
                     "</td><td>"+ 
@@ -17,7 +19,6 @@ function loadTable(){
                     "</td><td>"+ 
                         entry.category +
                     "</td></tr>";
-        console.log($row);
         $tbody.append($row);
     });
 }

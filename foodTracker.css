@@ -1,4 +1,4 @@
-html{
+body{
     background-image: url(images/foodbg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -89,3 +89,27 @@ input,select{
     border-color: #f80178;
     background-color: #02fbf752;
 }
+
+
+@media (min-width:380px){
+    body{
+        width: 380px;
+        height: 600px;
+        background-size: 380px 600px;
+        background-position: center;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .container{
+        width: 380px;
+        height: 600px;
+    }
+
+    #entryForm,table{
+        width: 320px;
+        align-self: center;
+        justify-self: center;
+    }
+}
+ 
