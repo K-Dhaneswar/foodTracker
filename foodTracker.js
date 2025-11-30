@@ -9,17 +9,17 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 
 $(document).ready(function(){
     loadTable();
-
+    checkDayChange();
 });
 
-let messages=["Yesterday you nailed it — today's another chance to shine!", //0
-                "Yesterday wasn't perfect, but today is a fresh chance — you've got this!",//1
-                "A Tifin and Two meals more to Go!!!",  //2
-                "A Tifin and a Meal to GO!!",   //3
-                "A Tifin or A snack item to GO!!", //4
-                "Two more meals to Go!!",   //5
-                "Keep going one more meal to Go!",  //6
-                "Meals and tiffin completed — star performance!"]//7
+let messages=["Yesterday you nailed it — today's another chance to shine!",
+                "Yesterday wasn't perfect, but today is a fresh chance — you've got this!",
+                "A Tifin and Two meals more to Go!!!",
+                "A Tifin and a Meal to GO!!",
+                "A Tifin or A snack item to GO!!",
+                "Two more meals to Go!!",
+                "Keep going one more meal to Go!",
+                "Meals and tiffin completed — star performance!"];
 
 function checkDayChange() {
     const now = new Date();
@@ -70,7 +70,7 @@ function loadTable(){
             }
         }
     });
-        $("p").text(messages[7-(arr[0]+arr[1])]);
+    $("p").text(messages[7-(arr[0]+arr[1])]);
 }
 
 $("#entryForm").on("submit",function(e){

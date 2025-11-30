@@ -1,4 +1,4 @@
-body{
+html{
     position: fixed;
     background-image: url(images/foodbg.png);
     background-repeat: no-repeat;
@@ -95,17 +95,22 @@ input,select{
 
 @media (min-width:380px){
     body{
-        width: 380px;
-        height: 600px;
+        background-image: url(images/foodbg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
         background-size: 380px 600px;
         background-position:center 0px;
         justify-self: center;
 
     }
 
+    html{
+        background: none;
+    }
+
     .container{
         top: 40px;
-        width: 380px;
+        width: 330px;
         height: 480px;
         position: relative;
     }
