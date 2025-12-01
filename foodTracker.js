@@ -5,11 +5,14 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
     let lastday=new Date(today);
     lastday.setDate(today.getDate()-1);
     localStorage.setItem("lastday",lastday.toLocaleDateString());
+    localStorage.setItem("reset",0);
+    console.log("aaaaa");
+    localStorage.setItem("para","Welcome! Have a Good Day!!");
 }
 
 $(document).ready(function(){
-    loadTable();
     checkDayChange();
+    loadTable();
     let username = localStorage.getItem("username");
 
     if (!username) {
@@ -35,24 +38,25 @@ let messages=["Yesterday you nailed it — today's another chance to shine!",
 
 function checkDayChange() {
     const now = new Date();
-    const today = now.toDateString();
+    const today = now.toLocaleDateString();
       // Compare with stored day
-    if (localStorage.getItem("lastDay") !== today) {
+    if (localStorage.getItem("lastday") !== today) {
         let arr= JSON.parse(localStorage.getItem("arr"));
-        if(arr[0]+arr[1]==0){
-            $("p").text(messages[0]);
+        if(localStorage.getItem("reset")==1){
+            if(arr[0]+arr[1]==0){
+            localStorage.setItem("para",messages[0]);
         }
         else{
-            $("p").text(messages[1]);
+            localStorage.setItem("para",messages[1]);
         }
+        }
+
+        // Save the new day and reset values
         localStorage.setItem("arr",JSON.stringify([3,2]));
-        // Save the new day
-        localStorage.setItem("lastDay", today);
+        localStorage.setItem("lastday", today);
+        localStorage.setItem("reset",0);
     }
 }
-
-
-
 
 function loadTable(){
     let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
@@ -73,7 +77,7 @@ function loadTable(){
                         entry.category +
                     "</td></tr>";
         $tbody.append($row);
-        if(entry.date>localStorage.getItem("lastday")){
+        if(entry.date==localStorage.getItem("lastday")){
             if(entry.category=="Meals" && arr[1]!=0){
                 arr[1]--;
             }
@@ -82,7 +86,10 @@ function loadTable(){
             }
         }
     });
-    $("p").text(messages[7-(arr[0]+arr[1])]);
+    if(localStorage.getItem("reset")==1){
+        localStorage.setItem("para",messages[7-(arr[0]+arr[1])]);
+    }
+    $("p").text(localStorage.getItem("para"));
 }
 
 $("#entryForm").on("submit",function(e){
@@ -98,7 +105,7 @@ $("#entryForm").on("submit",function(e){
         let foodData= JSON.parse(localStorage.getItem("foodData")) || [];
         foodData.push({date, time, fooditems, quantity, category});
         localStorage.setItem("foodData",JSON.stringify(foodData));
-
+        localStorage.setItem("reset",1);
         loadTable();
         this.reset();
 });
