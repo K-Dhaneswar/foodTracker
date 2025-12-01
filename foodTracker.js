@@ -10,6 +10,18 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 $(document).ready(function(){
     loadTable();
     checkDayChange();
+    let username = localStorage.getItem("username");
+
+    if (!username) {
+      // Ask user once
+      alert("⚠️ Important: Once you enter your username, it cannot be changed later! ")
+      username = prompt("Please enter your username:");
+      if (username) {
+        localStorage.setItem("username", username);
+      }
+    }
+    $("h1").text(username);
+
 });
 
 let messages=["Yesterday you nailed it — today's another chance to shine!",
