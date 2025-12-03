@@ -9,15 +9,13 @@ html{
 
 .container{
     position: fixed;
-    top: 60px;
+    top:65px;
     display:block;
     gap: 2px;
     height: 86vh;
     width: 80vw;
     justify-items: center;
     justify-self: center;
-    overflow-y: scroll;
-    scrollbar-width: none;
 }
 
 #entryForm{
@@ -43,13 +41,14 @@ table{
     border: 1px solid;
     border-color: #f80178;
     width: 80vw;
+    height: 50%;
     font-size: smaller;
     margin-bottom: 5px;
 }
 
 .table-wrapper{
     width: 100%;
-    max-height: 35vh;
+    max-height: 30%;
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -96,7 +95,18 @@ input,select{
     width: 80%;
 }
 
-@media (min-width:500px){
+#Prev{
+    display: flex;
+    width: min-content;
+}
+
+#Prev input{
+    height: max-content;
+    align-self: center;
+    width: max-content;
+}
+
+@media (min-width:465px){
     body{
         background-image: url(images/foodbg.png);
         background-repeat: no-repeat;
@@ -115,7 +125,6 @@ input,select{
         top: 40px;
         width: 330px;
         height: 480px;
-        position: relative;
     }
 
     #entryForm,table{
