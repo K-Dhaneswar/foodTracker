@@ -25,6 +25,7 @@ html{
     flex-direction: column;
     gap: 1vh;
     width: 80vw;
+    align-items: center;
 }
 
 input[type="submit"],button{
@@ -85,15 +86,17 @@ label,p{
     font-family: monospace;
     font-weight:bolder;
     color: rgb(247, 65, 4);
+    align-self: self-start;
 }
 
 input,select{
     border-radius: 8px;
     border-color: #f80178;
     background-color: #02fbf752;
+    width: 80%;
 }
 
-@media (min-width:420px){
+@media (min-width:500px){
     body{
         background-image: url(images/foodbg.png);
         background-repeat: no-repeat;

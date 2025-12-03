@@ -4,11 +4,23 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
     let today=new Date();
     let lastday=new Date(today);
     lastday.setDate(today.getDate()-1);
-    localStorage.setItem("lastday",lastday.toLocaleDateString());
+    localStorage.setItem("lastday",lastday.toLocaleDateString("en-GB"));
     localStorage.setItem("reset",0);
-    console.log("aaaaa");
     localStorage.setItem("para","Welcome! Have a Good Day!!");
 }
+
+function updateValues(){
+    if(!localStorage.getItem("newupdate")){
+        let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
+        $.each(foodData,function(index,value){
+            let parts=value.date.split("/");
+            value.date=parts[1]+"/"+parts[0]+"/"+parts[2];
+        });
+        localStorage.setItem("foodData",JSON.stringify(foodData));
+        localStorage.setItem("newupdate","true");
+    }
+}
+updateValues();
 
 $(document).ready(function(){
     checkDayChange();
@@ -24,7 +36,6 @@ $(document).ready(function(){
       }
     }
     $("h1").text(username);
-
 });
 
 let messages=["Yesterday you nailed it — today's another chance to shine!",
@@ -38,7 +49,14 @@ let messages=["Yesterday you nailed it — today's another chance to shine!",
 
 function checkDayChange() {
     const now = new Date();
-    const today = now.toLocaleDateString();
+    //date max attribute
+    let yyyy=now.getFullYear();
+    let mm=String(now.getMonth() + 1).padStart(2, '0');
+    let dd = String(now.getDate()).padStart(2, '0');
+    let maxdate=yyyy+'-'+mm+'-'+dd;
+    $("#prevDate").attr({max:maxdate,value:maxdate});
+
+    const today = now.toLocaleDateString("en-GB");
       // Compare with stored day
     if (localStorage.getItem("lastday") !== today) {
         let arr= JSON.parse(localStorage.getItem("arr"));
@@ -95,17 +113,45 @@ function loadTable(){
 $("#entryForm").on("submit",function(e){
         e.preventDefault();
         let now=new Date();
-        let date=now.toLocaleDateString();
+        let date=now.toLocaleDateString("en-GB");
         let time=now.toLocaleTimeString();
+        let prevday=0;
+        let prevDate;
+
+        localStorage.setItem("reset",1);
 
         let fooditems=$("#fooditems").val();
         let quantity=$("#quantity").val();
         let category=$("#category").val();
+        if($("#prevDate").val()){
+            prevDate=new Date($("#prevDate").val());
+            prevDate=prevDate.toLocaleDateString("en-GB")
+            if(prevDate<date){
+                date=prevDate;
+                prevday=1;
+                localStorage.setItem("reset",0);
+            }
+        }
 
         let foodData= JSON.parse(localStorage.getItem("foodData")) || [];
-        foodData.push({date, time, fooditems, quantity, category});
+        if(prevday==0 || foodData.length==0){
+            foodData.push({date, time, fooditems, quantity, category});
+        }
+        else{
+            let newData=[];
+            let flag=0;
+            $.each(foodData, function(index,value){
+                if(flag==0 && value.date >= prevDate)
+                {
+                    newData.push({date,time,fooditems,quantity,category});
+                    flag=1
+                }
+                newData.push(value);
+            });
+            foodData=newData;
+        }
+        
         localStorage.setItem("foodData",JSON.stringify(foodData));
-        localStorage.setItem("reset",1);
         loadTable();
         this.reset();
 });
