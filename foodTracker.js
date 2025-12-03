@@ -143,6 +143,7 @@ $("#entryForm").on("submit",function(e){
             $.each(foodData, function(index,value){
                 if(flag==0 && value.date >= prevDate)
                 {
+                    time=value.time;
                     newData.push({date,time,fooditems,quantity,category});
                     flag=1
                 }
