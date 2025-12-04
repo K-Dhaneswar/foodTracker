@@ -12,11 +12,11 @@
                 <h1><!--User Name--></h1>
             </div>
             <form id="entryForm">
-                <label>Enter food item:</label>
+                <label for="fooditems">Enter food item:</label>
                 <input id="fooditems" type="text" pattern="^[^0-9]+$" placeholder="Enter 'all' items in ur plate" title="Only letters are allowed" required>
-                <label>Enter Quantity:</label>
+                <label for="quantity">Enter Quantity:</label>
                 <input id="quantity" type="number" min="1" placeholder="1 for rice items else Quantity " required>
-                <label>Enter Category:</label>
+                <label for="category">Enter Category:</label>
                 <select id="category" required>
                     <option value="">--Select Category--</option>
                     <option value="Fruit">Fruits</option>
@@ -26,13 +26,13 @@
                     <option value="Dairy">Dairy</option>
                 </select>
 
-                <label>Press to enter previous day's details:</label>
+                <label for="pastDetails">Press to enter previous day's details:</label>
                 <input id="pastDetails" type="checkbox" value="True">
 
                 <div id="Prev">
-                    <label>Choose Date:</label>
+                    <label for="Date">Choose Date:</label>
                     <input id="Date" type="date">
-                    <label>Enter Time:(Optional)</label>
+                    <label for="Time">Enter Time:(Optional)</label>
                     <input id="Time" type="time">
                 </div>
                 <input type="submit" value="Add Entry">
