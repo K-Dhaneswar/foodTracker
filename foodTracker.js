@@ -12,13 +12,20 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 function updateValues(){
         let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
         $.each(foodData,function(index,value){
+            if(value.date=="02/12/2025"){
+                foodData.r
+            }
             let parts=value.date.split("/");
             value.date=parts[1]+"/"+parts[0]+"/"+parts[2];
         });
         localStorage.setItem("foodData",JSON.stringify(foodData));
         alert(localStorage.length);
+        let str="";
+        $.each(localStorage,function(index,value){
+            str=str+value;
+        });
+        alert(str);
 }
-updateValues();
 
 $(document).ready(function(){
     updateValues();
