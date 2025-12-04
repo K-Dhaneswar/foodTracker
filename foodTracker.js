@@ -10,11 +10,9 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 }
 
 function updateValues(){
+    if(!localStorage.getItem("hai")){
         let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
         $.each(foodData,function(index,value){
-            if(value.date=="02/12/2025"){
-                foodData.r
-            }
             let parts=value.date.split("/");
             value.date=parts[1]+"/"+parts[0]+"/"+parts[2];
         });
@@ -24,10 +22,9 @@ function updateValues(){
         $.each(localStorage,function(index,value){
             str=str+value;
         });
-        localStorage.removeItem("newupdate");
-        localStorage.removeItem("newupdate1");
-        localStorage.removeItem("lastDay");
         alert(str);
+        localStorage.setItem("hai","2");
+    }
 }
 
 $(document).ready(function(){
