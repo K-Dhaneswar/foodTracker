@@ -10,19 +10,20 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 }
 
 function updateValues(){
-    if(!localStorage.getItem("newupdate")){
+    if(!localStorage.getItem("newupdate1")){
         let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
         $.each(foodData,function(index,value){
             let parts=value.date.split("/");
             value.date=parts[1]+"/"+parts[0]+"/"+parts[2];
         });
         localStorage.setItem("foodData",JSON.stringify(foodData));
-        localStorage.setItem("newupdate","false");
+        localStorage.setItem("newupdate1","true");
     }
 }
 updateValues();
 
 $(document).ready(function(){
+    updateValues();
     checkDayChange();
     loadTable();
     let username = localStorage.getItem("username");
