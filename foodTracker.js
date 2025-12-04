@@ -10,7 +10,7 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 }
 
 function updateValues(){
-    if(!localStorage.getItem("newupdate1")){
+    if(localStorage.getItem("newupdate1")){
         let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
         $.each(foodData,function(index,value){
             let parts=value.date.split("/");
