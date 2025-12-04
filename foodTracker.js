@@ -9,7 +9,7 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
     localStorage.setItem("para","Welcome! Have a Good Day!!");
 }
 
-function updateValues(){
+/*function updateValues(){
     if(!localStorage.getItem("hai")){
         let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
         $.each(foodData,function(index,value){
@@ -25,10 +25,10 @@ function updateValues(){
         alert(str);
         localStorage.setItem("hai","2");
     }
-}
+}*/
 
 $(document).ready(function(){
-    updateValues();
+    localStorage.removeItem("hai");
     checkDayChange();
     loadTable();
     let username = localStorage.getItem("username");
