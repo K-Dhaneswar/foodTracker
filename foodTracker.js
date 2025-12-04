@@ -26,6 +26,7 @@ function updateValues(){
         });
         localStorage.removeItem("newupdate");
         localStorage.removeItem("newupdate1");
+        localStorage.removeItem("lastDay");
         alert(str);
 }
 
