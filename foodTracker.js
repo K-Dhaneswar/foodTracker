@@ -24,6 +24,8 @@ function updateValues(){
         $.each(localStorage,function(index,value){
             str=str+value;
         });
+        localStorage.removeItem("newupdate");
+        localStorage.removeItem("newupdate1");
         alert(str);
 }
 
