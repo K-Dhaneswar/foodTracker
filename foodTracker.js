@@ -180,9 +180,9 @@ $("#remove").on("click", function(e){
     e.preventDefault();
     let foodData=JSON.parse(localStorage.getItem("foodData")) || [];
     if(foodData.length > 0){
-        let confrimation=confirm("Are you sure about removing latest entry?");
+        let confrimation=confirm("Are you sure about removing latest entry vachindhaaaaa?");
         if(confrimation){
-            foodData.pop();
+            foodData.shift();
             localStorage.setItem("foodData",JSON.stringify(foodData));
             loadTable();
         }else{
