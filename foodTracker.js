@@ -28,7 +28,6 @@ if ( !localStorage.getItem("arr") && !localStorage.getItem("lastday")) {
 }*/
 
 $(document).ready(function(){
-    localStorage.removeItem("hai");
     checkDayChange();
     loadTable();
     let username = localStorage.getItem("username");
@@ -180,9 +179,9 @@ $("#remove").on("click", function(e){
     e.preventDefault();
     let foodData=JSON.parse(localStorage.getItem("foodData")) || [];
     if(foodData.length > 0){
-        let confrimation=confirm("Are you sure about removing latest entry vachindhaaaaa?");
+        let confrimation=confirm("Are you sure about removing latest entry?");
         if(confrimation){
-            foodData.shift();
+            foodData.pop();
             localStorage.setItem("foodData",JSON.stringify(foodData));
             loadTable();
         }else{

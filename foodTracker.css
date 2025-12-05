@@ -97,6 +97,7 @@ input,select{
 
 #Prev{
     display: flex;
+    flex-direction: row;
     width: min-content;
 }
 
